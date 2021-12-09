@@ -18,6 +18,7 @@ const submit = function (e) {
     const totalSum = (+bill.value + +percentSum) / +e.target.value;
     reset.style.backgroundColor = `var(--strong-cyan)`;
     reset.disabled = false;
+    people.blur();
     const html = `
   <div class="total__person">
   <div>
