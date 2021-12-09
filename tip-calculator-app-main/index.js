@@ -14,7 +14,9 @@ const submit = function (e) {
   if (e.keyCode === 13) {
     total.innerHTML = "";
     const percentSum = (+bill.value * percentValue) / 100;
-    const percentPer = (+bill.value * (percentValue / 100)) / +e.target.value;
+    const percentPer = Math.round(
+      (+bill.value * (percentValue / 100)) / +e.target.value
+    );
     const totalSum = (+bill.value + +percentSum) / +e.target.value;
     reset.style.backgroundColor = `var(--strong-cyan)`;
     reset.disabled = false;
