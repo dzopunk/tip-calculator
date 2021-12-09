@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background-color: var(--light-grayish-cyan);
+  color: var(--darker-grayish-cyan);
+}
+
+input {
+  text-align: end;
+  border-style: none;
+  background-color: var(--lighter-grayish-cyan);
+  border-radius: 1rem;
+  padding: 0.3rem 2rem;
+  font-family: inherit;
+  font-size: var(--font-size-inputs);
+  font-weight: 700;
+  color: var(--very-dark-cyan);
+  width: 100%;
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid var(--strong-cyan);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+::placeholder {
+  color: var(--light-grayish-cyan);
+  opacity: 1;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+:root {
+  --strong-cyan: hsl(172, 67%, 45%);
+
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --darker-grayish-cyan: hsl(186, 14%, 43%);
+  --dark-grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --lighter-grayish-cyan: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+
+  --font-size-inputs: 2.4rem;
+}
+
+header {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ============= */
+/*   GENERAL APP */
+/* ============= */
+.calculator {
+  width: 100vw;
+  // height: 100vh;
+  background-color: var(--white);
+  position: absolute;
+  top: 15%;
+  border-radius: 2.5rem;
+
+  padding: 3rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 90em) {
+  .calculator {
+    width: 65%;
+    top: 30%;
+    transform: translate(25%);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 91em) {
+  .calculator {
+    width: 50%;
+    top: 30%;
+    transform: translate(50%);
+  }
+}
+/* ============= */
+/*  INFORMATIONS */
+/* ============= */
+.info {
+  margin-bottom: 3rem;
+  &__amount h2 {
+    margin-left: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  &__amount label {
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 1.5rem;
+      top: 1.9px;
+      transform: translateY(-50%);
+      height: 100%;
+      width: 100%;
+      background-image: url(./images/icon-dollar.svg);
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+/* ========= */
+/*  PERCENT */
+/* ======== */
+.percent {
+  margin-bottom: 3rem;
+  & input {
+    text-align: end;
+    padding: 0 2rem;
+    color: var(--very-dark-cyan);
+  }
+  & h2 {
+    margin-left: 0.4rem;
+    margin-bottom: 2rem;
+  }
+  &__options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    & > * {
+      background-color: var(--very-dark-cyan);
+      color: var(--white);
+      font-family: inherit;
+      font-size: var(--font-size-inputs);
+      font-weight: 700;
+      border-radius: 0.5rem;
+      text-align: center;
+      padding-block: 0.5rem;
+    }
+
+    *:last-child {
+      background-color: var(--lighter-grayish-cyan);
+    }
+
+    ::placeholder {
+      color: var(--darker-grayish-cyan);
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 90em) {
+  .percent__options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========= */
+/*  PEOPLE  */
+/* ======== */
+.people {
+  margin-bottom: 3rem;
+  position: relative;
+
+  &__amount h2 {
+    margin-left: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  &__amount label {
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 1.5rem;
+      top: 1.9px;
+      transform: translateY(-50%);
+      height: 100%;
+      width: 100%;
+      background-image: url(./images/icon-person.svg);
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--very-dark-cyan);
+  border-radius: 1rem;
+  min-width: 100%;
+  padding-inline: 2rem;
+  padding-top: 3rem;
+
+  &__person {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    align-items: center;
+
+    & h2 {
+      color: var(--white);
+    }
+
+    & span {
+      color: var(--dark-grayish-cyan);
+      // font-size: 1.3rem;
+      font-weight: 700;
+    }
+  }
+
+  &__amount {
+    color: var(--strong-cyan);
+    font-size: var(--font-size-inputs);
+    font-weight: 700;
+  }
+
+  & button {
+    background-color: var(--dark-grayish-cyan);
+    font-family: inherit;
+    font-size: var(--font-size-inputs);
+    font-weight: 700;
+    color: var(--very-dark-cyan);
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    padding-block: 0.5rem;
+  }
+}
+
+@media (min-width: 90em) {
+  .total {
+    height: 100%;
+    justify-content: space-between;
+
+    & button {
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+.hidden-msg {
+  color: orange;
+  text-align: end;
+  // margin-right: 0.4rem;
+  // margin-bottom: 1rem;
+  position: absolute;
+  right: 0.4rem;
+  top: 0rem;
+  visibility: hidden;
+  // display: none;
+}
+
+.active {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="index.js" defer></script>
+
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <!-- Bill Select Tip % 5% 10% 15% 25% 50% Custom Number of People Tip Amount /
+    person Total / person Reset -->
+    <header>
+      <img src="./images/logo.svg" alt="" />
+    </header>
+    <main id="main">
+      <div class="calculator">
+        <div>
+          <div class="info">
+            <div class="info__amount">
+              <h2>Bill</h2>
+              <label><input id="bill" type="number" placeholder="0" /></label>
+            </div>
+          </div>
+          <div class="percent">
+            <h2>Select Tip %</h2>
+            <div class="percent__options">
+              <button data-set="5" class="btn">5%</button>
+              <button data-set="10" class="btn">10%</button>
+              <button data-set="15" class="btn">15%</button>
+              <button data-set="20" class="btn">20%</button>
+              <button data-set="25" class="btn">25%</button>
+              <input id="custom" type="number" placeholder="Custom" />
+            </div>
+          </div>
+          <div class="people">
+            <div class="people__amount">
+              <h2>Number of people</h2>
+              <h2 class="hidden-msg">Can't be zero</h2>
+              <label
+                ><input id="people" type="number" placeholder="0" required
+              /></label>
+            </div>
+          </div>
+        </div>
+        <div class="total">
+          <div class="total__container">
+            <div class="total__person">
+              <div>
+                <h2>Tip Amount</h2>
+                <span>/ person</span>
+              </div>
+              <div class="total__amount">$0.00</div>
+            </div>
+            <div id="tip" class="total__person">
+              <div>
+                <h2>Total</h2>
+                <span>/ person</span>
+              </div>
+              <div id="total" class="total__amount">$0.00</div>
+            </div>
+          </div>
+
+          <button id="reset" disabled>RESET</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
