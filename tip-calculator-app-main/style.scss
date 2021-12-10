@@ -34,6 +34,12 @@ input {
   outline: none;
 }
 
+@media (min-width: 90em) {
+  input {
+    padding: 0.6rem 2rem;
+  }
+}
+
 input:focus {
   border: 2px solid var(--strong-cyan);
 }
@@ -75,7 +81,7 @@ button {
 
 header {
   position: absolute;
-  top: 5%;
+  top: 15%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -289,4 +295,9 @@ header {
 .active {
   background-color: var(--strong-cyan);
   color: var(--very-dark-cyan);
+}
+
+h1 {
+  display: none;
+  visibility: hidden;
 }

@@ -5,39 +5,24 @@ const hiddenMsg = document.querySelector(".hidden-msg");
 const reset = document.querySelector("#reset");
 const percent = document.querySelector(".percent__options");
 const button = document.querySelectorAll(".btn");
-const total = document.querySelector(".total__container");
+const tip = document.querySelector("#tip");
+const total = document.querySelector("#total");
 
 let percentValue;
-console.log(people);
+
 /////SUBMIT TOTAL AMOUNT AND TIP
 const submit = function (e) {
   if (e.keyCode === 13) {
+    tip.innerHTML = "";
     total.innerHTML = "";
     const percentSum = (+bill.value * percentValue) / 100;
-    const percentPer = Math.round(
-      (+bill.value * (percentValue / 100)) / +e.target.value
-    );
+    const percentPer = (+bill.value * (percentValue / 100)) / +e.target.value;
     const totalSum = (+bill.value + +percentSum) / +e.target.value;
     reset.style.backgroundColor = `var(--strong-cyan)`;
     reset.disabled = false;
     people.blur();
-    const html = `
-  <div class="total__person">
-  <div>
-    <h2>Tip Amount</h2>
-    <span>/ person</span>
-  </div>
-  <div class="total__amount">$${percentPer}</div>
-</div>
-<div id="tip" class="total__person">
-  <div>
-    <h2>Total</h2>
-    <span>/ person</span>
-  </div>
-  <div id="total" class="total__amount">$${totalSum}</div>
-</div>
-  `;
-    total.insertAdjacentHTML("beforebegin", html);
+    tip.innerHTML = `$${percentPer.toFixed(2)}`;
+    total.innerHTML = `$${totalSum.toFixed(2)}`;
   }
   if (+e.target.value === 0) {
     reset.disabled = true;
@@ -73,7 +58,6 @@ percent.addEventListener("click", function (e) {
 
 //////RESET /////
 reset.addEventListener("click", function () {
-  total.innerHTML = "";
   bill.value = "";
   people.value = "";
   custom.value = "";
